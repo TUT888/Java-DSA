@@ -5,6 +5,7 @@ public class Solution {
 		int maxGap = 0;
 		int prev = -1;
 		int i = 0;
+		// Time complexity of below group of code: O(log2(N))
 		do {
 			int r = N%2;
 			
