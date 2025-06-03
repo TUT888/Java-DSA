@@ -1,4 +1,4 @@
-package binary_gap;
+package dsa1.binary_gap;
 
 import java.util.Scanner;
 

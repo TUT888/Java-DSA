@@ -1,4 +1,4 @@
-package same_sum_dice;
+package dsa1.same_sum_dice;
 
 import java.util.Arrays;
 
