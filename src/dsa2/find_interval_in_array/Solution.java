@@ -1,6 +1,9 @@
 package dsa2.find_interval_in_array;
 
 public class Solution {
+	// Time complexity: O(N^2)
+	// Space complexity: O(N)
+	// Additional space: O(R-L+1)
 	public static int solution(int[] A, int L, int R) {
 		// boolean[] checkArray: Check the seen value from L to R
 		// checkArray[i] should check value L

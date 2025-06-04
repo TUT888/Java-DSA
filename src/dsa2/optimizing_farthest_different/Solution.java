@@ -1,28 +1,26 @@
 package dsa2.optimizing_farthest_different;
 
 public class Solution {
-	// Optimized solution: O(n)
+	// Time complexity: O(N)
+	// Space complexity: O(N)
+	// Additional space: O(1)
 	public static int solution(int[] A) {		
 		int farthest = 0;
 		
 		// Forward
-		int i = 0;
-		while (i < A.length-1) {
+		for (int i=0; i<A.length-1; i++) {
 			if (A[i] != A[A.length-1]) {
 				farthest = A.length - 1 - i;
 				break;
 			}
-			i++;
 		}
 		
 		// Backward
-		i = A.length-1;
-		while (i > 0) {
+		for (int i=A.length-1; i>0; i--) {
 			if (A[0] != A[i]) {
 				farthest = Math.max(farthest, i);
 				break;
 			}
-			i--;
 		}
 		
 		return farthest;
