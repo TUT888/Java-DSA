@@ -4,7 +4,7 @@ public class BE8LinkedList {
 	LinkedListItem head;
 	
 	// Insert at any index
-	// Time: O(index)
+	// Time: O(n)
 	// Space: O(1) 
 	public boolean insert(int index, int value) {
 		if (head == null) {
@@ -33,7 +33,7 @@ public class BE8LinkedList {
 	}
 	
 	// Delete any index
-	// Time: O(index)
+	// Time: O(n)
 	// Space: O(1) 
 	public boolean delete(int index) {
 		if (head == null) {
