@@ -1,4 +1,4 @@
-package dsa4;
+package dsa4.linkedlist;
 
 public class Main {
 	public static void main(String[] args) {
