@@ -20,25 +20,37 @@ public class Main {
 		printNode(tree.root.children.get(1));
 		
 		// Find node
-		int target = 20;
+		int target = 0;
 		MyNode node = tree.findNodeV1(target);
 		System.out.println("Found node: " + node + " -> value: " + (node!=null ? node.value : ""));
 		node = tree.findNodeV2(tree.root, target);
 		System.out.println("Found node: " + node + " -> value: " + (node!=null ? node.value : ""));
-
-		target = 21;
+		
+		target = 10;
 		node = tree.findNodeV1(target);
 		System.out.println("Found node: " + node + " -> value: " + (node!=null ? node.value : ""));
 		node = tree.findNodeV2(tree.root, target);
 		System.out.println("Found node: " + node + " -> value: " + (node!=null ? node.value : ""));
-
-		target = 0;
+		
+		target = 20;
+		node = tree.findNodeV1(target);
+		System.out.println("Found node: " + node + " -> value: " + (node!=null ? node.value : ""));
+		node = tree.findNodeV2(tree.root, target);
+		System.out.println("Found node: " + node + " -> value: " + (node!=null ? node.value : ""));
+		
+		target = 22;
 		node = tree.findNodeV1(target);
 		System.out.println("Found node: " + node + " -> value: " + (node!=null ? node.value : ""));
 		node = tree.findNodeV2(tree.root, target);
 		System.out.println("Found node: " + node + " -> value: " + (node!=null ? node.value : ""));
 
 		target = 11;
+		node = tree.findNodeV1(target);
+		System.out.println("Found node: " + node + " -> value: " + (node!=null ? node.value : ""));
+		node = tree.findNodeV2(tree.root, target);
+		System.out.println("Found node: " + node + " -> value: " + (node!=null ? node.value : ""));
+		
+		target = 21;
 		node = tree.findNodeV1(target);
 		System.out.println("Found node: " + node + " -> value: " + (node!=null ? node.value : ""));
 		node = tree.findNodeV2(tree.root, target);

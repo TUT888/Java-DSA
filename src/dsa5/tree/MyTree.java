@@ -12,21 +12,20 @@ public class MyTree {
 	// Traverse by level
 	public MyNode findNodeV1(int value) {
 		if (root == null) return null;
-		if (root.value == value) return root;
 
 		// For each node
 		// 1. check its value
 		// 2. add its children to nodeList, which will be visited later
 		ArrayList<MyNode> nodeList = new ArrayList<MyNode>();
-		nodeList.addAll(root.children);
+		nodeList.add(root);
 		while (nodeList.size() > 0) {
 			MyNode currentNode = nodeList.removeFirst();
 			if (currentNode.value == value) {
 				return currentNode;
 			}
-			// Add current node's children
-			if (currentNode.children != null ) {
-				nodeList.addAll(currentNode.children);
+			// Add current node's children to list
+			for (MyNode childNode : currentNode.children) {
+				nodeList.add(childNode);
 			}
 		}
 		
