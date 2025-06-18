@@ -9,11 +9,11 @@ public class MyTree {
 		this.root = root;
 	}
 	
-	// Traverse by level
-	public MyNode findNodeV1(int value) {
+	// Traverse by breadth - BFS
+	public MyNode findNodeBFS(int value) {
 		if (root == null) return null;
 
-		// For each node
+		// For each node (First In First Out)
 		// 1. check its value
 		// 2. add its children to nodeList, which will be visited later
 		ArrayList<MyNode> nodeList = new ArrayList<MyNode>();
@@ -32,20 +32,21 @@ public class MyTree {
 		return null;
 	}
 	
-	// Traverse by depth
-	public MyNode findNodeV2(MyNode currentNode, int value) {
+	// Traverse by depth - DFS
+	public MyNode findNodeDFS(MyNode currentNode, int value) {
 		// Check current node
 		if (currentNode == null) return null;
-		if (currentNode.value == value) return currentNode;
 		
 		for (MyNode childNode : currentNode.children) {
-			MyNode result = findNodeV2(childNode, value);
+			MyNode result = findNodeDFS(childNode, value);
 			// Only return the node if the result is not null
 			// Otherwise, continue the search with next child in next loop
 			if (result != null) {
 				return result;
 			}
 		}
+		
+		if (currentNode.value == value) return currentNode;
 		
 		return null;
 	}

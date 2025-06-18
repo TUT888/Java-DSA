@@ -21,39 +21,39 @@ public class Main {
 		
 		// Find node
 		int target = 0;
-		MyNode node = tree.findNodeV1(target);
+		MyNode node = tree.findNodeBFS(target);
 		System.out.println("Found node: " + node + " -> value: " + (node!=null ? node.value : ""));
-		node = tree.findNodeV2(tree.root, target);
+		node = tree.findNodeDFS(tree.root, target);
 		System.out.println("Found node: " + node + " -> value: " + (node!=null ? node.value : ""));
 		
 		target = 10;
-		node = tree.findNodeV1(target);
+		node = tree.findNodeBFS(target);
 		System.out.println("Found node: " + node + " -> value: " + (node!=null ? node.value : ""));
-		node = tree.findNodeV2(tree.root, target);
+		node = tree.findNodeDFS(tree.root, target);
 		System.out.println("Found node: " + node + " -> value: " + (node!=null ? node.value : ""));
 		
 		target = 20;
-		node = tree.findNodeV1(target);
+		node = tree.findNodeBFS(target);
 		System.out.println("Found node: " + node + " -> value: " + (node!=null ? node.value : ""));
-		node = tree.findNodeV2(tree.root, target);
+		node = tree.findNodeDFS(tree.root, target);
 		System.out.println("Found node: " + node + " -> value: " + (node!=null ? node.value : ""));
 		
 		target = 22;
-		node = tree.findNodeV1(target);
+		node = tree.findNodeBFS(target);
 		System.out.println("Found node: " + node + " -> value: " + (node!=null ? node.value : ""));
-		node = tree.findNodeV2(tree.root, target);
+		node = tree.findNodeDFS(tree.root, target);
 		System.out.println("Found node: " + node + " -> value: " + (node!=null ? node.value : ""));
 
 		target = 11;
-		node = tree.findNodeV1(target);
+		node = tree.findNodeBFS(target);
 		System.out.println("Found node: " + node + " -> value: " + (node!=null ? node.value : ""));
-		node = tree.findNodeV2(tree.root, target);
+		node = tree.findNodeDFS(tree.root, target);
 		System.out.println("Found node: " + node + " -> value: " + (node!=null ? node.value : ""));
 		
 		target = 21;
-		node = tree.findNodeV1(target);
+		node = tree.findNodeBFS(target);
 		System.out.println("Found node: " + node + " -> value: " + (node!=null ? node.value : ""));
-		node = tree.findNodeV2(tree.root, target);
+		node = tree.findNodeDFS(tree.root, target);
 		System.out.println("Found node: " + node + " -> value: " + (node!=null ? node.value : ""));
 	}
 	
