@@ -33,6 +33,8 @@ public class MyTree {
 	}
 	
 	// Traverse by depth - DFS
+	// Time: O(n)
+	// Space:O(n) with worst case "cây cột điện"
 	public MyNode findNodeDFS(MyNode currentNode, int value) {
 		// Check current node
 		if (currentNode == null) return null;
