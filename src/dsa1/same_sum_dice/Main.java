@@ -9,6 +9,7 @@ public class Main {
 		int[] B1 = {1, 1, 6};
 		System.out.println("Array A: " + Arrays.toString(A1));
 		System.out.println("Array B: " + Arrays.toString(B1));
+		System.out.println("Result: " + Solution.orgSolution(A1, B1));
 		System.out.println("Result: " + Solution.solution(A1, B1));
 
 		System.out.println("\nTest 2");
@@ -16,6 +17,7 @@ public class Main {
 		int[] B2 = {5, 4, 6};
 		System.out.println("Array A: " + Arrays.toString(A2));
 		System.out.println("Array B: " + Arrays.toString(B2));
+		System.out.println("Result: " + Solution.orgSolution(A2, B2));
 		System.out.println("Result: " + Solution.solution(A2, B2));
 
 		System.out.println("\nTest 3");
@@ -23,6 +25,7 @@ public class Main {
 		int[] B3 = {2};
 		System.out.println("Array A: " + Arrays.toString(A3));
 		System.out.println("Array B: " + Arrays.toString(B3));
+		System.out.println("Result: " + Solution.orgSolution(A3, B3));
 		System.out.println("Result: " + Solution.solution(A3, B3));
 
 		System.out.println("\nTest 4");
@@ -30,6 +33,7 @@ public class Main {
 		int[] B4 = {6};
 		System.out.println("Array A: " + Arrays.toString(A4));
 		System.out.println("Array B: " + Arrays.toString(B4));
+		System.out.println("Result: " + Solution.orgSolution(A4, B4));
 		System.out.println("Result: " + Solution.solution(A4, B4));
 	}
 }
