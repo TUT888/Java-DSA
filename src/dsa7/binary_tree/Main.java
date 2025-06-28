@@ -1,5 +1,7 @@
 package dsa7.binary_tree;
 
+import java.util.ArrayList;
+
 public class Main {
 	public static void main(String[] args) {
 		// Init tree
@@ -30,7 +32,8 @@ public class Main {
 
 		System.out.println("Height: " + tree.getHeight());
 		
-		System.out.println("Is balance: " + tree.isBalance());
+		System.out.println("Is balance V1: " + tree.isBalanceV1());
+		System.out.println("Is balance V2: " + tree.isBalanceV2());
 		
 		System.out.println("All imbalance nodes: ");
 		for (Node node : tree.findImbalanceNode()) {

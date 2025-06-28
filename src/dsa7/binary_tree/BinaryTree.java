@@ -15,23 +15,43 @@ public class BinaryTree {
 	}
 	
 	// ====== Check balance tree ====== //
-	public boolean isBalance() {
+	public boolean isBalanceV1() {
+		if (root == null) return false;
+
+		ArrayList<Node> nodeList = new ArrayList<Node>();
+		nodeList.add(root);
+		while (nodeList.size() > 0) {
+			Node currentNode = nodeList.removeFirst();
+			
+			int h1 = height(currentNode.left);
+			int h2 = height(currentNode.right);
+			if (Math.abs(h1-h2) > 1) return false;
+
+			if (currentNode.left != null) nodeList.add(currentNode.left);
+			if (currentNode.right != null) nodeList.add(currentNode.right);
+		}
+		
+		return true;
+	}
+	
+	public boolean isBalanceV2() {
 		return checkBalanceWithHeight(root) != -1;
 	}
 	
 	private int checkBalanceWithHeight(Node node) {
 		if (node == null) return 0;
 		
-		// Calculate height
+		// Calculate height & check imbalance of child node
+		// h = -1 => imbalance
 		int h1 = checkBalanceWithHeight(node.left);
-		int h2 = checkBalanceWithHeight(node.right);
+		if (h1 == -1) return -1;
 		
-		// Check imbalance node => return -1 for imbalance
-		// if |h1 - h2| > 1 => this node is imbalance
-		// or if any of h1 or h2 = -1 (because of above condition) => child node is imbalance
-		if (Math.abs(h1-h2) > 1 || h1 == -1 || h2 == -1) {
-			return -1;
-		}
+		int h2 = checkBalanceWithHeight(node.right);
+		if (h2 == -1) return -1;
+		
+		// Check imbalance of  current node 
+		// |h1 - h2| > 1 => return -1 for imbalance
+		if (Math.abs(h1-h2) > 1) return -1;
 		
 		// Calculate height
 		return Math.max(h1, h2) + 1;
