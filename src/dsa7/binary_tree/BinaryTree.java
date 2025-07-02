@@ -41,51 +41,50 @@ public class BinaryTree {
 		int hLeft = balanceTreeRecursion(node, node.left);
 		int hRight = balanceTreeRecursion(node, node.right);
 		
-		// Check imbalance node & Rotate
-		if (Math.abs(hLeft - hRight) > 1) {
-			if (hLeft > hRight) {
-				// Rotate right
-				Node rotatedNode = node.left;
-				if (rotatedNode.left == null) {
-					// Swap left and right
-					rotatedNode.left = rotatedNode.right;
-					rotatedNode.right = null;
-				} 
-				node.left = rotatedNode.right;
-				rotatedNode.right = node;
-				
-				// Update parent's child node
-				if (parentNode == null) {
-					root = rotatedNode;
-				} else if (parentNode.left.value == node.value) {
-					parentNode.left = rotatedNode;
-				} else {
-					parentNode.right = rotatedNode;
-				}
-				
-				return hLeft;
+		// Check imbalance node & rotate
+		if ((hLeft - hRight) > 1) {
+			// Rotate right
+			Node rotatedNode = node.left;
+			if (rotatedNode.left == null) {
+				// Swap left and right
+				rotatedNode.left = rotatedNode.right;
+				rotatedNode.right = null;
+			} 
+			node.left = rotatedNode.right;
+			rotatedNode.right = node;
+			
+			// Update parent's child node
+			if (parentNode == null) {
+				root = rotatedNode;
+			} else if (parentNode.left.value == node.value) {
+				parentNode.left = rotatedNode;
 			} else {
-				// Rotate left
-				Node rotatedNode = node.right;
-				if (rotatedNode.right == null) {
-					// Swap left and right
-					rotatedNode.right = rotatedNode.left;
-					rotatedNode.left = null;
-				} 
-				node.right = rotatedNode.left;
-				rotatedNode.left = node;
-				
-				// Update parent's child node
-				if (parentNode == null) {
-					root = rotatedNode;
-				} else if (parentNode.left.value == node.value) {
-					parentNode.left = rotatedNode;
-				} else {
-					parentNode.right = rotatedNode;
-				}
-				
-				return hRight;
+				parentNode.right = rotatedNode;
 			}
+			
+			return hLeft;
+		}
+		if ((hRight - hLeft) > 1) {
+			// Rotate left
+			Node rotatedNode = node.right;
+			if (rotatedNode.right == null) {
+				// Swap left and right
+				rotatedNode.right = rotatedNode.left;
+				rotatedNode.left = null;
+			} 
+			node.right = rotatedNode.left;
+			rotatedNode.left = node;
+			
+			// Update parent's child node
+			if (parentNode == null) {
+				root = rotatedNode;
+			} else if (parentNode.left.value == node.value) {
+				parentNode.left = rotatedNode;
+			} else {
+				parentNode.right = rotatedNode;
+			}
+			
+			return hRight;
 		}
 		
 		// Calculate height
