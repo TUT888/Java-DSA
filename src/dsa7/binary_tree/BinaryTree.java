@@ -14,7 +14,86 @@ public class BinaryTree {
 		return Math.max(height(node.left), height(node.right)) + 1;
 	}
 	
-	// ====== Check balance tree ====== //
+	public void printTreeBFS() {
+		if (root == null) return;
+		
+		ArrayList<Node> nodeList = new ArrayList<Node>();
+		nodeList.add(root);
+		while (nodeList.size() > 0) {
+			Node currentNode = nodeList.removeFirst();
+			System.out.print(currentNode.value + " ");
+
+			if (currentNode.left != null) nodeList.add(currentNode.left);
+			if (currentNode.right != null) nodeList.add(currentNode.right);
+		}
+		System.out.println();
+	}
+
+	// ====== DSA Day 8: Balance Tree ====== //
+	public void balanceTree() {
+		balanceTreeRecursion(null, root);
+	}
+	
+	private int balanceTreeRecursion(Node parentNode, Node node) {
+		if (node == null) return -1;
+		
+		// Calculate height
+		int hLeft = balanceTreeRecursion(node, node.left);
+		int hRight = balanceTreeRecursion(node, node.right);
+		
+		// Check imbalance node & Rotate
+		if (Math.abs(hLeft - hRight) > 1) {
+			if (hLeft > hRight) {
+				// Rotate right
+				Node rotatedNode = node.left;
+				if (rotatedNode.left == null) {
+					// Swap left and right
+					rotatedNode.left = rotatedNode.right;
+					rotatedNode.right = null;
+				} 
+				node.left = rotatedNode.right;
+				rotatedNode.right = node;
+				
+				// Update parent's child node
+				if (parentNode == null) {
+					root = rotatedNode;
+				} else if (parentNode.left.value == node.value) {
+					parentNode.left = rotatedNode;
+				} else {
+					parentNode.right = rotatedNode;
+				}
+				
+				return hLeft;
+			} else {
+				// Rotate left
+				Node rotatedNode = node.right;
+				if (rotatedNode.right == null) {
+					// Swap left and right
+					rotatedNode.right = rotatedNode.left;
+					rotatedNode.left = null;
+				} 
+				node.right = rotatedNode.left;
+				rotatedNode.left = node;
+				
+				// Update parent's child node
+				if (parentNode == null) {
+					root = rotatedNode;
+				} else if (parentNode.left.value == node.value) {
+					parentNode.left = rotatedNode;
+				} else {
+					parentNode.right = rotatedNode;
+				}
+				
+				return hRight;
+			}
+		}
+		
+		// Calculate height
+		return Math.max(hLeft, hRight) + 1;
+	}
+	
+	// ====== DSA Day 7: Check balance and find imbalance node ====== //
+	// Check balance
 	public boolean isBalanceV1() {
 		if (root == null) return false;
 
@@ -53,11 +132,11 @@ public class BinaryTree {
 		// |h1 - h2| > 1 => return -1 for imbalance
 		if (Math.abs(h1-h2) > 1) return -1;
 		
-		// Calculate height
+		// Return current level
 		return Math.max(h1, h2) + 1;
 	}
 	
-	// ====== Find imbalance node ====== //
+	// Find imbalance node
 	public ArrayList<Node> findImbalanceNode() {
 		ArrayList<Node> result = new ArrayList<Node>();
 		findImbalanceWithHeight(result, root);
