@@ -1,4 +1,4 @@
-package dsa9.binary_tree_final;
+package dsa9.binary_tree;
 
 public class Main {
 	public static void main(String[] args) {
