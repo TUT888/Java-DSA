@@ -109,7 +109,7 @@ public class BST extends BinaryTree {
 		ArrayList<Node> nodeList = new ArrayList<Node>();
 		nodeList.add(root);
 		while (nodeList.size() > 0) {
-			Node currentNode = nodeList.removeFirst();
+			Node currentNode = nodeList.remove(0);
 			System.out.print(currentNode.value + " ");
 
 			if (currentNode.left != null) nodeList.add(currentNode.left);
