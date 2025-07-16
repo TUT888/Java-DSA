@@ -21,6 +21,9 @@ public class Solution {
 			start = end;
 		}
 		
+		// If cost > 25, using 30-day ticket is more efficient
+		if (minimumCost > 25) return 25;
+		
 		return minimumCost;
 	}
 }
